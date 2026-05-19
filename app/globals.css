@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fraunces (display) + Plus Jakarta Sans (body) */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: theme('colors.ink.500');
+  background: theme('colors.cream.50');
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 144, 'SOFT' 100;
+  letter-spacing: -0.025em;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .bg-mesh {
+    background:
+      radial-gradient(at 15% 20%, theme('colors.lavender.100') 0px, transparent 50%),
+      radial-gradient(at 85% 10%, theme('colors.butter.100') 0px, transparent 50%),
+      radial-gradient(at 70% 80%, theme('colors.sky.100') 0px, transparent 50%),
+      theme('colors.cream.50');
+  }
+
+  .bg-mesh-soft {
+    background:
+      radial-gradient(at 25% 30%, theme('colors.lavender.50') 0px, transparent 60%),
+      radial-gradient(at 75% 70%, theme('colors.butter.50') 0px, transparent 60%),
+      theme('colors.cream.50');
+  }
+
+  .bg-grain {
+    background-image: radial-gradient(rgba(42, 36, 29, 0.025) 1px, transparent 1px);
+    background-size: 4px 4px;
+  }
+
+  .text-gradient-lavender {
+    background: linear-gradient(135deg, theme('colors.lavender.600'), theme('colors.lavender.400'));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Hide scrollbar but keep functional */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+::selection {
+  background: theme('colors.lavender.200');
+  color: theme('colors.ink.600');
+}
